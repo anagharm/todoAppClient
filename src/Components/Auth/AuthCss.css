@@ -1,0 +1,31 @@
+.authSign{
+    border-style: solid;
+    border-color: rgb(243, 237, 237);
+    border-width: 1px;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 600px;
+}
+
+.authSignImgDiv{
+    background-image: url(../../assets/img/logoimg.jpg) !important;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.authSignInFormDiv{
+    height: 600px;
+    padding: 5%;
+}
+
+.authSignUpFormDiv{
+    height: 600px;
+    padding: 1%;
+}
+
+.authSignForgotPasswordFormDiv{
+    height: 600px;
+    padding: 5%;
+}

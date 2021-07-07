@@ -1,0 +1,15 @@
+.dummyUserImg {
+    border: 1px solid grey;
+    background-image: url('../../assets/img/profileImg.png');
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-origin: content-box;
+    background-position-x: left;
+    background-position-y: top;
+}
+
+.viewDiv{
+    height: 60px;
+}

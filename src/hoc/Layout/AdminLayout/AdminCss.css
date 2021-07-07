@@ -1,0 +1,74 @@
+.adminLayoutInnerLayout {
+    border                  : 1px solid rgb(159, 167, 240);
+    margin                  : 1%;
+    padding                 : 1%;
+    min-height              : 700px;
+    display                 : grid;
+    grid-template-columns   : 15% 85%;
+}
+
+.adminMenuOuterDiv {
+    padding-top             : 2%;
+    /* padding-left            : 7%; */
+    background-color        :rgb(87, 103, 248);
+    color                   :white;
+    font-size               : large;
+    font-style              : italic;
+    border-radius           : 5px;
+    margin-right            : 1%;
+}
+
+.adminContentOuterDiv {
+    border                  : 1px solid rgb(87, 103, 248);
+    border-radius           : 5px;
+    margin-left             : 1%;
+}
+
+.adminMenuInnerDiv {
+    /* border: 1px solid red; */
+    padding-top: 1%;
+    padding-left: 4%;
+}
+
+.adminMenuLogoDiv {
+    font-style: italic;
+    font-size: x-large;
+    border-bottom: 2px solid white;
+    margin-bottom: 4%;
+    margin-top: 7%;
+    text-align: center;
+}
+
+.adminMenuUsrNameDiv {
+    font-size: medium;
+    text-align: left;
+    /* margin-left: 4%; */
+    padding: 4%;
+    border-bottom: 2px solid white;
+    margin-bottom: 4%;
+}
+
+.adminMenu {
+    font-size: medium;
+    font-style: normal;
+}
+
+.adminHeaderOuterDiv {
+    height: 60px;
+    background-color :rgb(87, 103, 248);
+    color : white;
+    font-size: 22px;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.adminMainContentDiv {
+    border: 1px solid rgb(87, 103, 248);
+    margin: 1%;
+    border-radius: 5px;
+    min-height: 600px;
+    padding: 2%;
+    font-size: 18px;
+}
+
