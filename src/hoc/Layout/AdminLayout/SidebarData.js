@@ -1,20 +1,31 @@
 import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
+import * as GrIcons from 'react-icons/gr';
+import * as MdIcons from 'react-icons/md';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import * as CgIcons from 'react-icons/cg';
+import * as FaIcons from 'react-icons/fa';
 
 export const SidebarData = [
   {
     title: 'Status',
-    icon: <CgIcons.CgUser />,
+    icon: <GrIcons.GrStatusGoodSmall />,
     path : '/admin/status'
   },
   {
     title: 'To Do Task',
-    icon: <CgIcons.CgUser />,
+    icon: <FaIcons.FaTasks />,
     path : '/admin/task'
+  },
+  {
+    title: 'Subject',
+    icon: <IoIcons.IoIosPaper/>,
+    path : '/admin/subject'
+  },
+  {
+    title: 'Type of Assignment',
+    icon: <MdIcons.MdAssignment />,
+    path : '/admin/typeofassignment'
   },
   {
     title: 'User Mgmt',

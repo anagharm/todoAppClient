@@ -9,74 +9,74 @@ import * as BiIcons from 'react-icons/bi';
 import * as AiIcons from 'react-icons/ai';
 import { useQueryClient } from 'react-query'
 
-function Status() {
+function TypeOfAssignment() {
     const queryClient = useQueryClient();
-    const [initialValues, setInitialValues] = useState({ id: "", status: "" })
+    const [initialValues, setInitialValues] = useState({ id: "", typeOfAssignment: "" })
     const validationSchema = Yup.object({
-        status: Yup.string().required('Required!!'),
+        typeOfAssignment: Yup.string().required('Required!!'),
     })
     const onSubmit = (values, { setSubmitting, resetForm }) => {
         console.log("values ",values)
-        resetForm({ id: "", status: "" })
+        resetForm({ id: "", typeOfAssignment: "" })
         if(values.id === ""){
             mutation.mutate(values)
         }else{
             mutationEdit.mutate(values)
         }
     }
-    const mutation = useMutation((params) => Fetcher('post', '/api/status/post/data', params), {
+    const mutation = useMutation((params) => Fetcher('post', '/api/typeofassignment/post/data', params), {
         onSuccess(data) {
             if (data.data.errorCode === 0) {
-                ToastInstance('Success', 'Status Added')
-                queryClient.invalidateQueries('liststatus');
+                ToastInstance('Success', 'Type of Assignment Added')
+                queryClient.invalidateQueries('listtypeofassignment');
             } else {
-                var msg = 'Status - ' + data.data.errorMsg;
+                var msg = 'Type of Assignment - ' + data.data.errorMsg;
                 ToastInstance('Error', msg)
             }
         },
         onError(error) {
             console.log('Got error from backend', error)
-            ToastInstance('Error', 'Status' + error)
+            ToastInstance('Error', 'Type of Assignment' + error)
         }
     })
-    const mutationEdit = useMutation((params) => Fetcher('patch', '/api/status/patch/data', params), {
+    const mutationEdit = useMutation((params) => Fetcher('patch', '/api/typeofassignment/patch/data', params), {
         onSuccess(data) {
             if (data.data.errorCode === 0) {
-                ToastInstance('Success', 'Status Edited')
-                queryClient.invalidateQueries('liststatus');
-                setInitialValues({ id: "", status: "" })
+                ToastInstance('Success', 'Type of Assignment Edited')
+                queryClient.invalidateQueries('listtypeofassignment');
+                setInitialValues({ id: "", typeOfAssignment: "" })
             } else {
-                var msg = 'Status - ' + data.data.errorMsg;
+                var msg = 'Type of Assignment - ' + data.data.errorMsg;
                 ToastInstance('Error', msg)
             }
         },
         onError(error) {
             console.log('Got error from backend', error)
-            ToastInstance('Error', 'Status' + error)
+            ToastInstance('Error', 'Type of Assignment' + error)
         }
     })
-    const mutationDelete = useMutation((params) => Fetcher('delete', '/api/status/delete/status', params), {
+    const mutationDelete = useMutation((params) => Fetcher('delete', '/api/typeofassignment/delete/typeofassignment', params), {
         onSuccess(data) {
             if (data.data.errorCode === 0) {
-                ToastInstance('Success', 'Status Deleted')
-                queryClient.invalidateQueries('liststatus');
+                ToastInstance('Success', 'Type of Assignment Deleted')
+                queryClient.invalidateQueries('listtypeofassignment');
             } else {
-                var msg = 'Status - ' + data.data.errorMsg;
+                var msg = 'Type of Assignment - ' + data.data.errorMsg;
                 ToastInstance('Error', msg)
             }
         },
         onError(error) {
             console.log('Got error from backend', error)
-            ToastInstance('Error', 'Status' + error)
+            ToastInstance('Error', 'Type of Assignment' + error)
         }
     })
-    const { data: statusList, isLoading } = useQuery(
-        'liststatus',
-        () => Fetcher('get', '/api/status/get/list/status', {}))
+    const { data: typeofassignmentList, isLoading } = useQuery(
+        'listtypeofassignment',
+        () => Fetcher('get', '/api/typeofassignment/get/list/typeofassignment', {}))
     function editData(item) {
         setInitialValues({
             id: item._id,
-            status: item.status
+            typeOfAssignment: item.typeOfAssignment
         })
     }
     function deleteData(deleteId) {
@@ -97,7 +97,7 @@ function Status() {
                 {
                     formik => <Form>
                         <div className="col-lg-10 col-lg-offset-1">
-                            <FormikControl control='input' type='text' label='Status' name='status' placeholder="Status" />
+                            <FormikControl control='input' type='text' label='Typeofassignment' name='typeOfAssignment' placeholder="Type of assignment" />
                         </div>
                         <div className="row">
                             <div className="col-lg-10"></div>
@@ -112,17 +112,17 @@ function Status() {
                                     <thead className="table-primary">
                                         <tr>
                                             <th scope="col" className="text-center" style={{ "width": "100px" }}>Sr. No.</th>
-                                            <th scope="col" className="text-center">Status</th>
+                                            <th scope="col" className="text-center">Type of Assignment</th>
                                             <th scope="col" className="text-center" style={{ "width": "120px" }}>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody >
                                         {
-                                            statusList.data.response.map((item, index) => {
+                                            typeofassignmentList.data.response.map((item, index) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td className="text-center">{index + 1}.</td>
-                                                        <td>{item.status}</td>
+                                                        <td>{item.typeOfAssignment}</td>
                                                         <td className="text-center">
                                                             <span style={{ "marginRight": "6%", "cursor": "pointer" }} onClick={() => editData(item)}><BiIcons.BiEdit /></span>
                                                             <span style={{ "marginLeft": "6%", "cursor": "pointer" }} onClick={() => deleteData(item._id)}><AiIcons.AiOutlineDelete /></span>
@@ -137,10 +137,9 @@ function Status() {
                         </div>
                     </Form>
                 }
-            </Formik>
-            
+            </Formik>       
         </div>
     )
 }
 
-export default Status
+export default TypeOfAssignment

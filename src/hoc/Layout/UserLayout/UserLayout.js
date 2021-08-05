@@ -1,19 +1,15 @@
 import React, { Component } from 'react';  
 import { Route } from 'react-router-dom';  
-import './AdminCss.css'
-import AdminMenu from './AdminMenu';
-import AdminHeader from './AdminHeader';
+import './UserCss.css'
+import UserHeader from './UserHeader';
 
-const AdminLayout = ({ children }) => {   
+const UserLayout = ({ children }) => {   
   var componentData = {children}
     return(
-      <div className="adminLayoutInnerLayout">
-        <div className="adminMenuOuterDiv">
-          <AdminMenu />
-        </div>
-        <div className="adminContentOuterDiv">
-          <AdminHeader  title={componentData.children.props.title}/>
-          <div className="adminMainContentDiv">
+      <div className="userLayoutInnerLayout">
+        <div className="userContentOuterDiv">
+          <UserHeader  title={componentData.children.props.title}/>
+          <div className="userMainContentDiv">
             {children}
           </div>
         </div>
@@ -21,15 +17,16 @@ const AdminLayout = ({ children }) => {
     )  
 };  
   
-const AdminLayoutRoute = ({component: Component, ...rest}) => {  
+const UserLayoutRoute = ({component: Component, ...rest}) => {  
   var parameter = {...rest}
+
 return (  
   <Route {...rest} render={matchProps => (  
-    <AdminLayout>  
+    <UserLayout>  
         <Component {...matchProps} title = {parameter.title} />  
-    </AdminLayout>  
+    </UserLayout>  
   )} />  
 )  
 };  
   
-export default AdminLayoutRoute;
+export default UserLayoutRoute;

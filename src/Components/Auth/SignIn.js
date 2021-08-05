@@ -32,8 +32,15 @@ function SignIn() {
             if(data.data.errorCode === 0){
                 ToastInstance('Success','User Logined In')
                 localStorage.setItem("userCode",data.data.response.userCode)
-                // localStorage.setItem("userCode",data.data.response.userCode)
-                history.push('/admin/task');
+                localStorage.setItem("role",data.data.response.role)
+                localStorage.setItem("firstName",data.data.response.firstName)
+                localStorage.setItem("lastName",data.data.response.lastName)
+                localStorage.setItem("token",data.data.response.token)
+                if(data.data.response.role === 'admin'){
+                    history.push('/admin/task');
+                }else{
+                    history.push('/user/task');
+                }
             }else{
                 var msg = 'User Not Registered - ' + data.data.errorMsg;
                 ToastInstance('Error',msg)
